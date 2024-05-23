@@ -12,7 +12,7 @@ def start_message(message):
 @bot.message_handler(content_types='text')
 def message_reply(message):
     messagee = {'role':'user', 'content': message.text}
-    response = ollama.chat(model=MODEL, messages=[message])
+    response = ollama.chat(model=MODEL, messages=[messagee])
     bot.send_message(message.chat.id, response['message']['content'])
     
 bot.infinity_polling()
